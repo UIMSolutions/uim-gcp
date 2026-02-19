@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uim-appengine-service
+spec:
+  rules:
+  - host: uim-appengine.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: uim-appengine-service
+            port:
+              number: 80

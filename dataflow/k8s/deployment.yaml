@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uim-dataflow-service
+  labels:
+    app: uim-dataflow-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uim-dataflow-service
+  template:
+    metadata:
+      labels:
+        app: uim-dataflow-service
+    spec:
+      containers:
+      - name: service
+        image: localhost/uim-dataflow-service:0.1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: WORKER_COUNT
+          value: "2"
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+          initialDelaySeconds: 2
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"

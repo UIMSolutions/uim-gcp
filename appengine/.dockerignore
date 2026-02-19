@@ -1,0 +1,11 @@
+.git
+.gitignore
+README.md
+k8s
+app.yaml
+.dub
+*.o
+*.obj
+*.lst
+*.gcda
+*.gcno

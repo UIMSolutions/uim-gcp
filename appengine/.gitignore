@@ -1,0 +1,15 @@
+.dub/
+dub.selections.json
+*.o
+*.obj
+*.lst
+*.gcda
+*.gcno
+*.exe
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.pdb
+/uim-appengine-service

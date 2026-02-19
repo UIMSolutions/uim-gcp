@@ -1,0 +1,12 @@
+runtime: custom
+env: flex
+service: uim-appengine-service
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 3
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+env_variables:
+  PORT: "8080"
