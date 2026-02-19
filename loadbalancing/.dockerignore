@@ -1,0 +1,11 @@
+.git
+.gitignore
+README.md
+k8s
+.dub
+scripts
+*.o
+*.obj
+*.lst
+*.gcda
+*.gcno

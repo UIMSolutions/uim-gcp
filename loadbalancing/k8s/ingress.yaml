@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uim-loadbalancing-service
+spec:
+  rules:
+  - host: uim-loadbalancing.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: uim-loadbalancing-service
+            port:
+              number: 80
